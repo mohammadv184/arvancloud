@@ -16,6 +16,7 @@ class ResponseException extends \Exception
      */
     public static function fromRequestException(RequestException $e): self
     {
+
         if (!$e->hasResponse()) {
             return new ResponseException($e->getMessage(), 0, $e);
         }
