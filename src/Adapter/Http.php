@@ -8,14 +8,18 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Mohammadv184\ArvanCloud\Auth\Auth;
 use Mohammadv184\ArvanCloud\Exception\ResponseException;
+use Mohammadv184\ArvanCloud\Response;
 use Psr\Http\Message\ResponseInterface;
 
 class Http implements Adapter
 {
     protected $client;
 
-    public function __construct(Auth $auth, string $baseUrl)
+    protected $service;
+
+    public function __construct(Auth $auth, string $baseUrl , string $service)
     {
+        $this->service = $service;
         $headers = $auth->getHeaders();
 
         $this->client = new Client([
@@ -30,7 +34,7 @@ class Http implements Adapter
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws ResponseException
      */
-    public function get(string $url, array $data = [], array $headers = []): ResponseInterface
+    public function get(string $url, array $data = [], array $headers = []): Response
     {
         return $this->request('GET',$url,$data,$headers);
     }
@@ -39,7 +43,7 @@ class Http implements Adapter
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws ResponseException
      */
-    public function post(string $url, array $data = [], array $headers = []): ResponseInterface
+    public function post(string $url, array $data = [], array $headers = []): Response
     {
         return $this->request('POST',$url,$data,$headers);
     }
@@ -48,7 +52,7 @@ class Http implements Adapter
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws ResponseException
      */
-    public function put(string $url, array $data = [], array $headers = []): ResponseInterface
+    public function put(string $url, array $data = [], array $headers = []): Response
     {
         return $this->request('PUT',$url,$data,$headers);
     }
@@ -57,7 +61,7 @@ class Http implements Adapter
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws ResponseException
      */
-    public function patch(string $url, array $data = [], array $headers = []): ResponseInterface
+    public function patch(string $url, array $data = [], array $headers = []): Response
     {
         return $this->request('PATCH',$url,$data,$headers);
     }
@@ -66,7 +70,7 @@ class Http implements Adapter
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws ResponseException
      */
-    public function delete(string $url, array $data = [], array $headers = []): ResponseInterface
+    public function delete(string $url, array $data = [], array $headers = []): Response
     {
         return $this->request('DELETE',$url,$data,$headers);
     }
@@ -75,7 +79,7 @@ class Http implements Adapter
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws ResponseException
      */
-    public function request(string $method , string $url , array $data = [], array $headers = []): ResponseInterface
+    public function request(string $method , string $url , array $data = [], array $headers = []): Response
     {
         try {
             $response = $this->client->request($method, $url, [
@@ -86,7 +90,20 @@ class Http implements Adapter
             throw ResponseException::fromRequestException($e);
         }
 
-        return $response;
 
+        $responseData = json_decode($response->getBody()->getContents(),true);
+
+        return $this->response(isset($responseData["data"])
+            ?$responseData['data']
+            :$responseData);
+
+    }
+
+    protected function response(array $data): Response
+    {
+        $r = new Response($this->service);
+        $r->data($data);
+
+        return $r;
     }
 }
