@@ -5,7 +5,7 @@ namespace Mohammadv184\ArvanCloud\Adapter;
 
 
 use Mohammadv184\ArvanCloud\Auth\Auth;
-use Psr\Http\Message\ResponseInterface;
+use Mohammadv184\ArvanCloud\Response;
 
 interface Adapter
 {
@@ -15,7 +15,7 @@ interface Adapter
      * @param Auth $auth
      * @param string $baseUrl
      */
-    public function __construct(Auth $auth, string $baseUrl);
+    public function __construct(Auth $auth, string $baseUrl,string $service);
 
     /**
      * Sends a GET request.
@@ -28,7 +28,7 @@ interface Adapter
      *
      * @return mixed
      */
-    public function get(string $url, array $data = [], array $headers = []): ResponseInterface;
+    public function get(string $url, array $data = [], array $headers = []): Response;
 
     /**
      * @param string $url
@@ -37,7 +37,7 @@ interface Adapter
      *
      * @return mixed
      */
-    public function post(string $url, array $data = [], array $headers = []): ResponseInterface;
+    public function post(string $url, array $data = [], array $headers = []): Response;
 
     /**
      * @param string $url
@@ -46,7 +46,7 @@ interface Adapter
      *
      * @return mixed
      */
-    public function put(string $url, array $data = [], array $headers = []): ResponseInterface;
+    public function put(string $url, array $data = [], array $headers = []): Response;
 
     /**
      * @param string $url
@@ -55,7 +55,7 @@ interface Adapter
      *
      * @return mixed
      */
-    public function patch(string $url, array $data = [], array $headers = []): ResponseInterface;
+    public function patch(string $url, array $data = [], array $headers = []): Response;
 
     /**
      * @param string $url
@@ -64,6 +64,6 @@ interface Adapter
      *
      * @return mixed
      */
-    public function delete(string $url, array $data = [], array $headers = []): ResponseInterface;
+    public function delete(string $url, array $data = [], array $headers = []): Response;
 
 }
