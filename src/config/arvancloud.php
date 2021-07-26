@@ -13,6 +13,7 @@ return[
             'domain' => 'di-gi-mall.ir',
             'endpoints'=>[
                 'domain'=>\Mohammadv184\ArvanCloud\Services\Cdn\Endpoints\Domain::class,
+                'dns'=>\Mohammadv184\ArvanCloud\Services\Cdn\Endpoints\Dns::class,
             ]
         ]
     ],
