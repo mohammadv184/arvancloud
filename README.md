@@ -95,7 +95,7 @@ In your code, use it like the below:
 use Mohammadv184\ArvanCloud\ArvanCloud;
 ...
 
-// Create new invoice.
+// Create new ArvanCloud.
 $arvanCloud = new ArvanCloud($config);
 
 // Using Cdn Service
