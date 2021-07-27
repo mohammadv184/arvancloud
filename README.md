@@ -79,13 +79,17 @@ c. Instantiate the `ArvanCloud` class and **pass configs to it** like the below:
 
     $arvanCloud= new ArvanCloud($config);
 ```
-##How to use service
+
+## How to use service
+
 How to use ArvanCloud Services.
 
-###CDN
+### CDN
+
 before doing any thing you need ArvanCloud Class
 
 In your code, use it like the below:
+
 ```php
 // At the top of the file.
 use Mohammadv184\ArvanCloud\ArvanCloud;
