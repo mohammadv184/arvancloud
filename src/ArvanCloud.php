@@ -11,7 +11,7 @@ use Mohammadv184\ArvanCloud\Services\Cdn\Cdn;
 /**
  * Class ArvanCloud.
  *
- * @method static Cdn cdn()
+ * @method Cdn cdn()
  */
 class ArvanCloud
 {
