@@ -1,15 +1,12 @@
 <?php
 
-
 namespace Mohammadv184\ArvanCloud\Adapter;
-
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
 use Mohammadv184\ArvanCloud\Auth\Auth;
 use Mohammadv184\ArvanCloud\Exception\ResponseException;
 use Mohammadv184\ArvanCloud\Response;
-use Psr\Http\Message\ResponseInterface;
 
 class Http implements Adapter
 {
@@ -17,16 +14,16 @@ class Http implements Adapter
 
     protected $service;
 
-    public function __construct(Auth $auth, string $baseUrl , string $service)
+    public function __construct(Auth $auth, string $baseUrl, string $service)
     {
         $this->service = $service;
         $headers = $auth->getHeaders();
 
         $this->client = new Client([
-            'base_uri' => $baseUrl,
-            'headers' => $headers,
-            'Accept' => 'application/json',
-            'allow_redirects'=>false
+            'base_uri'       => $baseUrl,
+            'headers'        => $headers,
+            'Accept'         => 'application/json',
+            'allow_redirects'=> false,
         ]);
     }
 
@@ -36,7 +33,7 @@ class Http implements Adapter
      */
     public function get(string $url, array $data = [], array $headers = []): Response
     {
-        return $this->request('GET',$url,$data,$headers);
+        return $this->request('GET', $url, $data, $headers);
     }
 
     /**
@@ -45,7 +42,7 @@ class Http implements Adapter
      */
     public function post(string $url, array $data = [], array $headers = []): Response
     {
-        return $this->request('POST',$url,$data,$headers);
+        return $this->request('POST', $url, $data, $headers);
     }
 
     /**
@@ -54,7 +51,7 @@ class Http implements Adapter
      */
     public function put(string $url, array $data = [], array $headers = []): Response
     {
-        return $this->request('PUT',$url,$data,$headers);
+        return $this->request('PUT', $url, $data, $headers);
     }
 
     /**
@@ -63,7 +60,7 @@ class Http implements Adapter
      */
     public function patch(string $url, array $data = [], array $headers = []): Response
     {
-        return $this->request('PATCH',$url,$data,$headers);
+        return $this->request('PATCH', $url, $data, $headers);
     }
 
     /**
@@ -72,36 +69,34 @@ class Http implements Adapter
      */
     public function delete(string $url, array $data = [], array $headers = []): Response
     {
-        return $this->request('DELETE',$url,$data,$headers);
+        return $this->request('DELETE', $url, $data, $headers);
     }
 
     /**
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws ResponseException
      */
-    public function request(string $method , string $url , array $data = [], array $headers = []): Response
+    public function request(string $method, string $url, array $data = [], array $headers = []): Response
     {
         try {
             $response = $this->client->request($method, $url, [
-                'headers' => $headers,
-                ($method == 'GET' ? 'query' : 'json') => $data
+                'headers'                             => $headers,
+                ($method == 'GET' ? 'query' : 'json') => $data,
             ]);
-        }catch (RequestException $e){
+        } catch (RequestException $e) {
             throw ResponseException::fromRequestException($e);
         }
 
+        $responseData = json_decode($response->getBody()->getContents(), true);
 
-        $responseData = json_decode($response->getBody()->getContents(),true);
-
-        return $this->response(isset($responseData["data"])
-            ?$responseData['data']
-            :$responseData,$responseData['message']??null);
-
+        return $this->response(isset($responseData['data'])
+            ? $responseData['data']
+            : $responseData, $responseData['message'] ?? null);
     }
 
-    protected function response(array $data,$message): Response
+    protected function response(array $data, $message): Response
     {
-        $r = new Response($this->service,$message);
+        $r = new Response($this->service, $message);
         $r->data($data);
 
         return $r;

@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mohammadv184\ArvanCloud\Services\Cdn;
-
 
 use Mohammadv184\ArvanCloud\Adapter\Adapter;
 
@@ -12,7 +10,7 @@ abstract class Endpoint
 
     protected $domain;
 
-    public function __construct(Adapter $http,string $defaultDomain , string $domain = null)
+    public function __construct(Adapter $http, string $defaultDomain, string $domain = null)
     {
         $this->http = $http;
 
