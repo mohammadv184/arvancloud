@@ -7,6 +7,17 @@ namespace Mohammadv184\ArvanCloud\Services\Cdn;
 use Mohammadv184\ArvanCloud\Adapter\Adapter;
 use Mohammadv184\ArvanCloud\Exception\InvalidArgument;
 use Mohammadv184\ArvanCloud\Services\API;
+use Mohammadv184\ArvanCloud\Services\Cdn\Endpoints\Cache;
+
+/**
+ * Class Cdn
+ * @package Mohammadv184\ArvanCloud\Services\Cdn
+ *
+ * @method Cache cache(string $domain = null)
+ * @method Cache dns(string $domain = null)
+ * @method Cache domain(string $domain = null)
+ * @method Cache ssl(string $domain = null)
+ */
 
 class Cdn implements API
 {
