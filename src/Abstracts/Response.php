@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mohammadv184\ArvanCloud\Abstracts;
-
 
 use Carbon\Carbon;
 
@@ -19,11 +17,13 @@ abstract class Response implements ResponseInterface
     protected $service;
 
     protected $message;
+
     /**
      * Response constructor.
+     *
      * @param $service
      */
-    public function __construct($service,$message=null)
+    public function __construct($service, $message = null)
     {
         $this->service = $service;
         $this->message = $message;
@@ -45,9 +45,9 @@ abstract class Response implements ResponseInterface
     {
         return $this->service;
     }
+
     public function getMessage(): string
     {
         return $this->message;
     }
-
 }

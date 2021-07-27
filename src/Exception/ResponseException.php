@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Mohammadv184\ArvanCloud\Exception;
-
 
 use GuzzleHttp\Exception\RequestException;
 
@@ -12,11 +10,11 @@ class ResponseException extends \Exception
      * Generates a ResponseException from a Guzzle RequestException.
      *
      * @param RequestException $e The client request exception (typically 4xx or 5xx response).
+     *
      * @return ResponseException
      */
     public static function fromRequestException(RequestException $e): self
     {
-
         if (!$e->hasResponse()) {
             return new ResponseException($e->getMessage(), 0, $e);
         }

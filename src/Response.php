@@ -1,7 +1,7 @@
 <?php
 
-
 namespace Mohammadv184\ArvanCloud;
+
 use Mohammadv184\ArvanCloud\Abstracts\Response as ResponseAbstract;
 use Mohammadv184\ArvanCloud\Traits\HasData;
 
@@ -11,7 +11,7 @@ class Response extends ResponseAbstract implements \ArrayAccess
 
     public function __set($name, $value)
     {
-        $this->data($name,$value);
+        $this->data($name, $value);
     }
 
     public function __get($name)
@@ -26,12 +26,12 @@ class Response extends ResponseAbstract implements \ArrayAccess
 
     public function offsetGet($offset)
     {
-       return $this->data[$offset];
+        return $this->data[$offset];
     }
 
     public function offsetSet($offset, $value)
     {
-        return $this->data[$offset]=$value;
+        return $this->data[$offset] = $value;
     }
 
     public function offsetUnset($offset)
