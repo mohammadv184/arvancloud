@@ -11,11 +11,13 @@ interface ResponseInterface
     /**
      * @return string
      */
-    public function GetService():string;
+    public function getService():string;
 
     /**
      * @return Carbon
      */
-    public function GetDate():Carbon;
+    public function getDate():Carbon;
+
+    public function getMessage():string;
 
 }
