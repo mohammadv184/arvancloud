@@ -6,28 +6,49 @@ use Mohammadv184\ArvanCloud\Adapter\Adapter;
 use Mohammadv184\ArvanCloud\Exception\InvalidArgument;
 use Mohammadv184\ArvanCloud\Services\API;
 use Mohammadv184\ArvanCloud\Services\Cdn\Endpoints\Cache;
+use Mohammadv184\ArvanCloud\Services\Cdn\Endpoints\Dns;
+use Mohammadv184\ArvanCloud\Services\Cdn\Endpoints\Domain;
+use Mohammadv184\ArvanCloud\Services\Cdn\Endpoints\Ssl;
 
 /**
  * Class Cdn.
  *
  * @method Cache cache(string $domain = null)
- * @method Cache dns(string $domain = null)
- * @method Cache domain(string $domain = null)
- * @method Cache ssl(string $domain = null)
+ * @method Dns dns(string $domain = null)
+ * @method Domain domain(string $domain = null)
+ * @method Ssl ssl(string $domain = null)
  */
 class Cdn implements API
 {
+    /**
+     * ArvanCloud Http Adapter
+     * @var Adapter
+     */
     protected $http;
 
+    /**
+     * ArvanCloud Configs
+     * @var array
+     */
     protected $config;
 
+    /**
+     * Cdn constructor.
+     * @param Adapter $http
+     * @param array $config
+     */
     public function __construct(Adapter $http, array $config)
     {
         $this->http = $http;
         $this->config = $config;
     }
 
+
     /**
+     * Call Endpoints
+     * @param $name
+     * @param $arguments
+     * @return mixed
      * @throws InvalidArgument
      */
     public function __call($name, $arguments)
