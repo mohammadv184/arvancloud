@@ -1,0 +1,30 @@
+{
+    "name": "mohammadv184/arvancloud",
+    "description": "PHP library for the ArvanCloud API",
+    "authors": [
+        {
+            "name": "Mohammad Abbasi",
+            "email": "mohammad.v184@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0|^8.0",
+        "guzzlehttp/guzzle": "^7.3",
+        "ext-json": "*",
+        "nesbot/carbon": "^2.50"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Mohammadv184\\ArvanCloud\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mohammadv184\\ArvanCloud\\Tests\\": "tests"
+        }
+    }
+}
