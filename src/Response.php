@@ -10,7 +10,8 @@ class Response extends ResponseAbstract implements \ArrayAccess
     use HasData;
 
     /**
-     * set Response Data
+     * set Response Data.
+     *
      * @param $name
      * @param $value
      */
@@ -20,8 +21,10 @@ class Response extends ResponseAbstract implements \ArrayAccess
     }
 
     /**
-     * get Response Data
+     * get Response Data.
+     *
      * @param $name
+     *
      * @return mixed|null
      */
     public function __get($name)
@@ -31,6 +34,7 @@ class Response extends ResponseAbstract implements \ArrayAccess
 
     /**
      * @param mixed $offset
+     *
      * @return bool
      */
     public function offsetExists($offset): bool
@@ -40,6 +44,7 @@ class Response extends ResponseAbstract implements \ArrayAccess
 
     /**
      * @param mixed $offset
+     *
      * @return mixed
      */
     public function offsetGet($offset)
@@ -50,6 +55,7 @@ class Response extends ResponseAbstract implements \ArrayAccess
     /**
      * @param mixed $offset
      * @param mixed $value
+     *
      * @return mixed|void
      */
     public function offsetSet($offset, $value)

@@ -8,11 +8,13 @@ use Mohammadv184\ArvanCloud\Services\Cdn\Endpoint;
 class Ssl extends Endpoint
 {
     /**
-     * Get Domain Ssl Settings
+     * Get Domain Ssl Settings.
+     *
      * @param string|null $domain
+     *
      * @return Response
      */
-    public function get(string $domain = null):Response
+    public function get(string $domain = null): Response
     {
         $url = 'domains/'.($domain ?? $this->domain).'/ssl';
 
@@ -20,12 +22,14 @@ class Ssl extends Endpoint
     }
 
     /**
-     * Update Domain Ssl Settings
-     * @param string $sslType
+     * Update Domain Ssl Settings.
+     *
+     * @param string      $sslType
      * @param string|null $domain
+     *
      * @return Response
      */
-    public function update(string $sslType, string $domain = null):Response
+    public function update(string $sslType, string $domain = null): Response
     {
         $url = 'domains/'.($domain ?? $this->domain).'/ssl';
         $data = [

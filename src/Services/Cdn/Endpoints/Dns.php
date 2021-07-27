@@ -8,11 +8,13 @@ use Mohammadv184\ArvanCloud\Services\Cdn\Endpoint;
 class Dns extends Endpoint
 {
     /**
-     * Get All Domain Dns
+     * Get All Domain Dns.
+     *
      * @param string|null $domain
+     *
      * @return Response
      */
-    public function all(string $domain = null):Response
+    public function all(string $domain = null): Response
     {
         $url = 'domains/'.($domain ?? $this->domain).'/dns-records';
 
@@ -20,12 +22,14 @@ class Dns extends Endpoint
     }
 
     /**
-     * Create new Domain Dns
-     * @param array $data
+     * Create new Domain Dns.
+     *
+     * @param array       $data
      * @param string|null $domain
+     *
      * @return Response
      */
-    public function create(array $data, string $domain = null):Response
+    public function create(array $data, string $domain = null): Response
     {
         $url = 'domains/'.($domain ?? $this->domain).'/dns-records';
 
@@ -33,12 +37,14 @@ class Dns extends Endpoint
     }
 
     /**
-     * Get Domain Dns Settings
-     * @param string $id
+     * Get Domain Dns Settings.
+     *
+     * @param string      $id
      * @param string|null $domain
+     *
      * @return Response
      */
-    public function get(string $id, string $domain = null):Response
+    public function get(string $id, string $domain = null): Response
     {
         $url = 'domains/'.($domain ?? $this->domain).'/dns-records/'.$id;
 
@@ -46,13 +52,15 @@ class Dns extends Endpoint
     }
 
     /**
-     * Update Domain Dns Settings
-     * @param string $id
-     * @param array $data
+     * Update Domain Dns Settings.
+     *
+     * @param string      $id
+     * @param array       $data
      * @param string|null $domain
+     *
      * @return Response
      */
-    public function update(string $id, array $data, string $domain = null):Response
+    public function update(string $id, array $data, string $domain = null): Response
     {
         $url = 'domains/'.($domain ?? $this->domain).'/dns-records/'.$id;
 
@@ -60,12 +68,14 @@ class Dns extends Endpoint
     }
 
     /**
-     * Delete Domain Dns
-     * @param string $id
+     * Delete Domain Dns.
+     *
+     * @param string      $id
      * @param string|null $domain
+     *
      * @return Response
      */
-    public function delete(string $id, string $domain = null):Response
+    public function delete(string $id, string $domain = null): Response
     {
         $url = 'domains/'.($domain ?? $this->domain).'/dns-records/'.$id;
 
@@ -73,13 +83,15 @@ class Dns extends Endpoint
     }
 
     /**
-     * Update Domain Dns Cloud Status
-     * @param string $id
-     * @param bool $status
+     * Update Domain Dns Cloud Status.
+     *
+     * @param string      $id
+     * @param bool        $status
      * @param string|null $domain
+     *
      * @return Response
      */
-    public function cloud(string $id, bool $status = true, string $domain = null):Response
+    public function cloud(string $id, bool $status = true, string $domain = null): Response
     {
         $url = 'domains/'.($domain ?? $this->domain).'/dns-records/'.$id.'/cloud';
 

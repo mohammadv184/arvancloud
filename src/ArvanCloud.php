@@ -16,13 +16,15 @@ use Mohammadv184\ArvanCloud\Services\Cdn\Cdn;
 class ArvanCloud
 {
     /**
-     * ArvanCloud Configs
+     * ArvanCloud Configs.
+     *
      * @var array|null
      */
     protected $config;
 
     /**
      * ArvanCloud constructor.
+     *
      * @param array|null $config
      */
     public function __construct(array $config = null)
@@ -31,11 +33,14 @@ class ArvanCloud
     }
 
     /**
-     * Call Services
+     * Call Services.
+     *
      * @param $name
      * @param $arguments
-     * @return mixed
+     *
      * @throws InvalidArgument
+     *
+     * @return mixed
      */
     public function __call($name, $arguments)
     {
@@ -53,13 +58,15 @@ class ArvanCloud
         return new $config['map'][strtolower($name)]($http, $config['services'][strtolower($name)], ...$arguments);
     }
 
-
     /**
-     * Call Static Services
+     * Call Static Services.
+     *
      * @param $name
      * @param $arguments
-     * @return mixed
+     *
      * @throws InvalidArgument
+     *
+     * @return mixed
      */
     public static function __callStatic($name, $arguments)
     {
@@ -78,7 +85,8 @@ class ArvanCloud
     }
 
     /**
-     * Load ArvanCloud Configs
+     * Load ArvanCloud Configs.
+     *
      * @return array
      */
     protected function loadConfig(): array

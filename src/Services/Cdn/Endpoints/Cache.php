@@ -8,11 +8,13 @@ use Mohammadv184\ArvanCloud\Services\Cdn\Endpoint;
 class Cache extends Endpoint
 {
     /**
-     * Get Domain Cache settings
+     * Get Domain Cache settings.
+     *
      * @param string|null $domain
+     *
      * @return \Mohammadv184\ArvanCloud\Response
      */
-    public function get(string $domain = null):Response
+    public function get(string $domain = null): Response
     {
         $url = 'domains/'.($domain ?? $this->domain).'/caching';
 
@@ -20,12 +22,14 @@ class Cache extends Endpoint
     }
 
     /**
-     * Update Domain Cache settings
-     * @param array $data
+     * Update Domain Cache settings.
+     *
+     * @param array       $data
      * @param string|null $domain
+     *
      * @return Response
      */
-    public function update(array $data, string $domain = null):Response
+    public function update(array $data, string $domain = null): Response
     {
         $url = 'domains/'.($domain ?? $this->domain).'/caching';
 
@@ -33,12 +37,14 @@ class Cache extends Endpoint
     }
 
     /**
-     * Purge Domain Cache
-     * @param array|null $urls
+     * Purge Domain Cache.
+     *
+     * @param array|null  $urls
      * @param string|null $domain
+     *
      * @return Response
      */
-    public function purge(array $urls = null, string $domain = null):Response
+    public function purge(array $urls = null, string $domain = null): Response
     {
         $url = 'domains/'.($domain ?? $this->domain).'/caching';
         $data = [

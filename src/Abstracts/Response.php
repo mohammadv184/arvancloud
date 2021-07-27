@@ -7,19 +7,22 @@ use Carbon\Carbon;
 abstract class Response implements ResponseInterface
 {
     /**
-     * Response Date
+     * Response Date.
+     *
      * @var Carbon
      */
     protected $date;
 
     /**
-     * Response ArvanCloud Service
+     * Response ArvanCloud Service.
+     *
      * @var string
      */
     protected $service;
 
     /**
-     * Response Message
+     * Response Message.
+     *
      * @var string
      */
     protected $message;
@@ -27,10 +30,10 @@ abstract class Response implements ResponseInterface
     /**
      * Response constructor.
      *
-     * @param string $service
+     * @param string      $service
      * @param string|null $message
      */
-    public function __construct(string $service,string $message = null)
+    public function __construct(string $service, string $message = null)
     {
         $this->service = $service;
         $this->message = $message;
@@ -38,7 +41,8 @@ abstract class Response implements ResponseInterface
     }
 
     /**
-     * Get Response Date
+     * Get Response Date.
+     *
      * @return Carbon
      */
     public function getDate(): Carbon
@@ -47,7 +51,8 @@ abstract class Response implements ResponseInterface
     }
 
     /**
-     * Get Response ArvanCloud Service
+     * Get Response ArvanCloud Service.
+     *
      * @return string
      */
     public function getService(): string
@@ -56,7 +61,8 @@ abstract class Response implements ResponseInterface
     }
 
     /**
-     * Get Response Message
+     * Get Response Message.
+     *
      * @return string
      */
     public function getMessage(): string
