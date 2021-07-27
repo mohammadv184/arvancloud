@@ -18,21 +18,22 @@ abstract class Response implements ResponseInterface
      */
     protected $service;
 
+    protected $message;
     /**
      * Response constructor.
      * @param $service
      */
-    public function __construct($service)
+    public function __construct($service,$message=null)
     {
         $this->service = $service;
-
+        $this->message = $message;
         $this->date = Carbon::now();
     }
 
     /**
      * @return Carbon
      */
-    public function GetDate(): Carbon
+    public function getDate(): Carbon
     {
         return $this->date;
     }
@@ -40,9 +41,13 @@ abstract class Response implements ResponseInterface
     /**
      * @return string
      */
-    public function GetService(): string
+    public function getService(): string
     {
         return $this->service;
+    }
+    public function getMessage(): string
+    {
+        return $this->message;
     }
 
 }
