@@ -59,38 +59,12 @@ class ArvanCloud
     }
 
     /**
-     * Call Static Services.
-     *
-     * @param $name
-     * @param $arguments
-     *
-     * @throws InvalidArgument
-     *
-     * @return mixed
-     */
-    public static function __callStatic($name, $arguments)
-    {
-        $config = (new ArvanCloud())->loadConfig();
-
-        if (!isset($config['map'][strtolower($name)])) {
-            throw new InvalidArgument("invalid Service {$name}");
-        }
-        $service = $config['map'][strtolower($name)];
-        $auth = $config['auth']['default'] == 'ApiKey'
-            ? new ApiKey($config['auth']['ApiKey'])
-            : new UserToken();
-        $http = new Http($auth, $config['services'][strtolower($name)]['baseUrl'], $service);
-
-        return new $config['map'][strtolower($name)]($http, $config['services'][strtolower($name)], ...$arguments);
-    }
-
-    /**
      * Load ArvanCloud Configs.
      *
      * @return array
      */
     protected function loadConfig(): array
     {
-        return require __DIR__.'/config/arvancloud.php';
+        return require __DIR__.'/../config/arvancloud.php';
     }
 }
