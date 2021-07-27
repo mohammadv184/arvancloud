@@ -19,7 +19,7 @@ class Response extends ResponseAbstract implements \ArrayAccess
         return $this->GetData($name);
     }
 
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->data[$offset]);
     }
