@@ -10,8 +10,9 @@ interface Adapter
     /**
      * Adapter constructor.
      *
-     * @param Auth   $auth
+     * @param Auth $auth
      * @param string $baseUrl
+     * @param string $service
      */
     public function __construct(Auth $auth, string $baseUrl, string $service);
 
