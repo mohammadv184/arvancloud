@@ -14,6 +14,7 @@ return[
             'endpoints'=>[
                 'domain'=>\Mohammadv184\ArvanCloud\Services\Cdn\Endpoints\Domain::class,
                 'dns'=>\Mohammadv184\ArvanCloud\Services\Cdn\Endpoints\Dns::class,
+                'cache'=>\Mohammadv184\ArvanCloud\Services\Cdn\Endpoints\Cache::class,
             ]
         ]
     ],
