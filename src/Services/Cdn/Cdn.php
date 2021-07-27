@@ -13,29 +13,32 @@ use Mohammadv184\ArvanCloud\Services\Cdn\Endpoints\Ssl;
 /**
  * Class Cdn.
  *
- * @method Cache cache(string $domain = null)
- * @method Dns dns(string $domain = null)
+ * @method Cache  cache(string $domain = null)
+ * @method Dns    dns(string $domain = null)
  * @method Domain domain(string $domain = null)
- * @method Ssl ssl(string $domain = null)
+ * @method Ssl    ssl(string $domain = null)
  */
 class Cdn implements API
 {
     /**
-     * ArvanCloud Http Adapter
+     * ArvanCloud Http Adapter.
+     *
      * @var Adapter
      */
     protected $http;
 
     /**
-     * ArvanCloud Configs
+     * ArvanCloud Configs.
+     *
      * @var array
      */
     protected $config;
 
     /**
      * Cdn constructor.
+     *
      * @param Adapter $http
-     * @param array $config
+     * @param array   $config
      */
     public function __construct(Adapter $http, array $config)
     {
@@ -43,13 +46,15 @@ class Cdn implements API
         $this->config = $config;
     }
 
-
     /**
-     * Call Endpoints
+     * Call Endpoints.
+     *
      * @param $name
      * @param $arguments
-     * @return mixed
+     *
      * @throws InvalidArgument
+     *
+     * @return mixed
      */
     public function __call($name, $arguments)
     {

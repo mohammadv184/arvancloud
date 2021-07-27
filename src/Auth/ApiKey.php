@@ -5,13 +5,15 @@ namespace Mohammadv184\ArvanCloud\Auth;
 class ApiKey implements Auth
 {
     /**
-     * ArvanCloud User apikey
+     * ArvanCloud User apikey.
+     *
      * @var string
      */
     protected $apiKey;
 
     /**
      * ApiKey constructor.
+     *
      * @param string $apiKey
      */
     public function __construct(string $apiKey)
@@ -20,7 +22,8 @@ class ApiKey implements Auth
     }
 
     /**
-     * get Request Headers
+     * get Request Headers.
+     *
      * @return string[]
      */
     public function getHeaders(): array

@@ -8,20 +8,23 @@ use Mohammadv184\ArvanCloud\Services\Cdn\Endpoint;
 class Domain extends Endpoint
 {
     /**
-     * Get All User Domains
+     * Get All User Domains.
+     *
      * @return Response
      */
-    public function all():Response
+    public function all(): Response
     {
         return $this->http->get('domains');
     }
 
     /**
-     * Create New User Domain
+     * Create New User Domain.
+     *
      * @param string $domain
+     *
      * @return Response
      */
-    public function create(string $domain):Response
+    public function create(string $domain): Response
     {
         return $this->http->post('domains/dns-service', [
             'domain' => $domain,
@@ -29,11 +32,13 @@ class Domain extends Endpoint
     }
 
     /**
-     * Get User Domain
+     * Get User Domain.
+     *
      * @param string|null $domain
+     *
      * @return Response
      */
-    public function get(string $domain = null):Response
+    public function get(string $domain = null): Response
     {
         $url = 'domains/'.($domain ?? $this->domain);
 
@@ -41,11 +46,13 @@ class Domain extends Endpoint
     }
 
     /**
-     * Delete User Domain
+     * Delete User Domain.
+     *
      * @param string|null $domain
+     *
      * @return Response
      */
-    public function delete(string $domain = null):Response
+    public function delete(string $domain = null): Response
     {
         $id = $this->get($domain ?? $this->domain)['id'];
         $url = 'domains/'.($domain ?? $this->domain)."?id=$id";

@@ -8,8 +8,9 @@ interface API
 {
     /**
      * API constructor.
+     *
      * @param Adapter $http
-     * @param array $config
+     * @param array   $config
      */
     public function __construct(Adapter $http, array $config);
 }

@@ -5,7 +5,8 @@ namespace Mohammadv184\ArvanCloud\Auth;
 class UserToken implements Auth
 {
     /**
-     * get Request Headers
+     * get Request Headers.
+     *
      * @return array
      */
     public function getHeaders(): array

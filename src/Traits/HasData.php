@@ -5,13 +5,15 @@ namespace Mohammadv184\ArvanCloud\Traits;
 trait HasData
 {
     /**
-     * Response Data
+     * Response Data.
+     *
      * @var array
      */
     protected $data = [];
 
     /**
-     * set Response Data
+     * set Response Data.
+     *
      * @param $key
      * @param null $value
      *
@@ -27,7 +29,8 @@ trait HasData
     }
 
     /**
-     * get Response Data
+     * get Response Data.
+     *
      * @param null $key
      *
      * @return mixed

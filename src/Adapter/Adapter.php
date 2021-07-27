@@ -10,7 +10,7 @@ interface Adapter
     /**
      * Adapter constructor.
      *
-     * @param Auth $auth
+     * @param Auth   $auth
      * @param string $baseUrl
      * @param string $service
      */
