@@ -95,13 +95,13 @@ class Http implements Adapter
 
         return $this->response(isset($responseData["data"])
             ?$responseData['data']
-            :$responseData);
+            :$responseData,$responseData['message']??null);
 
     }
 
-    protected function response(array $data): Response
+    protected function response(array $data,$message): Response
     {
-        $r = new Response($this->service);
+        $r = new Response($this->service,$message);
         $r->data($data);
 
         return $r;
