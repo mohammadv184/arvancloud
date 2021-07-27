@@ -135,8 +135,8 @@ Available methods:
 
 ## Credits
 
-- [Mohammad Abbasi][https://github.com/mohammadv184]
-- [All Contributors][../../contributors]
+- [Mohammad Abbasi](https://github.com/mohammadv184)
+- [All Contributors](../../contributors)
 
 ## License
 
