@@ -7,6 +7,7 @@
 [![Latest Stable Version](http://poser.pugx.org/mohammadv184/arvancloud/v)](https://packagist.org/packages/mohammadv184/arvancloud)
 [![Total Downloads](http://poser.pugx.org/mohammadv184/arvancloud/downloads)](https://packagist.org/packages/mohammadv184/arvancloud)
 [![Latest Unstable Version](http://poser.pugx.org/mohammadv184/arvancloud/v/unstable)](https://packagist.org/packages/mohammadv184/arvancloud)
+[![Build Status](https://www.travis-ci.com/mohammadv184/arvancloud.svg?branch=main)](https://www.travis-ci.com/mohammadv184/arvancloud)
 [![License](http://poser.pugx.org/mohammadv184/arvancloud/license)](https://packagist.org/packages/mohammadv184/arvancloud)
 
 
