@@ -11,7 +11,7 @@
 
 
 PHP library for the ArvanCloud API.
-This package supports `PHP 7.2+`.
+This package supports `PHP 7.3+`.
 
 # List of contents
 
