@@ -155,9 +155,9 @@ class Http implements Adapter
 
         $responseData = json_decode($response->getBody()->getContents(), true);
 
-        return $this->response(isset($responseData['data'])&&is_array($responseData['data'])
-            ?$responseData['data']
-            :$responseData, $responseData['message'] ?? null);
+        return $this->response(isset($responseData['data']) && is_array($responseData['data'])
+            ? $responseData['data']
+            : $responseData, $responseData['message'] ?? null);
     }
 
     /**
@@ -168,7 +168,7 @@ class Http implements Adapter
      *
      * @return Response
      */
-    protected function response(array $data, string $message=null): Response
+    protected function response(array $data, string $message = null): Response
     {
         $r = new Response($this->service, $message);
         $r->data($data);
