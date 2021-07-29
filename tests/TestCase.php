@@ -17,7 +17,7 @@ abstract class TestCase extends BaseTestCase
      */
     public function getResponse(string $path, string $service): Response
     {
-        $file = file_get_contents(__DIR__.'/FakeResponse/'.$path);
+        $file = file_get_contents(__DIR__.'/FakeResponse/'.$path.'.json');
 
         $responseData = json_decode($file, true);
 
