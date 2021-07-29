@@ -1,0 +1,30 @@
+{
+  "message": "string",
+  "data": {
+    "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+    "user_id": "a169451c-8525-4352-b8ca-070dd449a1a5",
+    "domain": "example.com",
+    "name": "example.com",
+    "plan_level": 1,
+    "plan_downgradable_at": "2019-08-24T14:15:22Z",
+    "services": {
+      "cdn": true,
+      "dns": "pending",
+      "cloud_security": true
+    },
+    "ns_keys": [
+      "example.com",
+      "example.com"
+    ],
+    "current_ns": [
+      "example.com",
+      "example.com"
+    ],
+    "status": "initializing",
+    "is_paused": false,
+    "is_suspended": false,
+    "parent_domain": false,
+    "created_at": "2019-08-24T14:15:22Z",
+    "updated_at": "2019-08-24T14:15:22Z"
+  }
+}
