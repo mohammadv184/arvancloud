@@ -1,0 +1,36 @@
+{
+  "message": "string",
+  "data": {
+    "ssl_type": "off",
+    "next_ssl_type": "off",
+    "certificates": [
+      {
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "type": "arvan",
+        "domain_names": [
+          "string"
+        ],
+        "issuer": "string",
+        "expiry_date": "2019-08-24T14:15:22Z",
+        "created_at": "2019-08-24T14:15:22Z",
+        "updated_at": "2019-08-24T14:15:22Z"
+      }
+    ],
+    "order": [
+      {
+        "id": "497f6eca-6276-4993-bfeb-53cbbbba6f08",
+        "order_id": "string",
+        "status": "unprocessed",
+        "domain_names": [
+          "string"
+        ],
+        "errors": [
+          {}
+        ],
+        "expiry_date": "2019-08-24T14:15:22Z",
+        "created_at": "2019-08-24T14:15:22Z",
+        "updated_at": "2019-08-24T14:15:22Z"
+      }
+    ]
+  }
+}
