@@ -405,13 +405,13 @@ class CdnServiceTest extends TestCase
         $httpResponse = $this->getResponse('updateSsl', 'cdn');
         $this->http->shouldReceive('patch')
             ->andReturn($httpResponse)
-            ->with('domains/example.com/ssl',[
+            ->with('domains/example.com/ssl', [
                 'ssl_type' => 'off'
             ]);
 
         $cdn = new Cdn($this->http, $this->config);
 
-        $response = $cdn->ssl()->update('off','example.com');
+        $response = $cdn->ssl()->update('off', 'example.com');
 
         $this->assertInstanceOf(Response::class, $response);
 
