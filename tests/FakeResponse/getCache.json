@@ -1,0 +1,17 @@
+{
+  "data": {
+    "f_cache_developer_mode": true,
+    "f_cache_consistent_uptime": true,
+    "cache_developer_mode": true,
+    "cache_consistent_uptime": true,
+    "cache_status": "off",
+    "cache_page_200": "0s",
+    "cache_page_any": "0s",
+    "cache_browser": "default",
+    "cache_scheme": true,
+    "cache_ignore_sc": true,
+    "cache_cookie": "string",
+    "cache_args": true,
+    "cache_arg": "filter&sort"
+  }
+}
