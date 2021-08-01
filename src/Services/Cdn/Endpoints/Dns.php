@@ -2,6 +2,7 @@
 
 namespace Mohammadv184\ArvanCloud\Services\Cdn\Endpoints;
 
+use GuzzleHttp\Psr7\Utils;
 use Mohammadv184\ArvanCloud\Response;
 use Mohammadv184\ArvanCloud\Services\Cdn\Endpoint;
 
@@ -98,5 +99,28 @@ class Dns extends Endpoint
         return $this->http->put($url, [
             'cloud'=> $status,
         ]);
+    }
+
+    /**
+     * Import DNS records using BIND file
+     * @param $zoneFile
+     * @param string|null $domain
+     * @return Response
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Mohammadv184\ArvanCloud\Exception\ResponseException
+     */
+    public function import($zoneFile, string $domain = null) : Response
+    {
+        $url = 'domains/'.($domain ?? $this->domain).'/dns-records/import';
+        $file = is_string($zoneFile)
+                ? Utils::tryFopen($zoneFile, 'r')
+                : $zoneFile;
+        $body = [[
+            'name'     => 'f_zone_file',
+            'contents' => $file
+        ]];
+        return $this->http->request('POST', $url, ['multipart'=>$body], [
+                    'Accept' => 'multipart/form-data'
+                ]);
     }
 }
