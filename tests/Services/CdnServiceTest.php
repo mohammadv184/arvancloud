@@ -5,6 +5,7 @@ namespace Mohammadv184\ArvanCloud\Tests\Services;
 use Mockery\Mock;
 use Mohammadv184\ArvanCloud\Adapter\Adapter;
 use Mohammadv184\ArvanCloud\Adapter\Http;
+use Mohammadv184\ArvanCloud\ArvanCloud;
 use Mohammadv184\ArvanCloud\Auth\ApiKey;
 use Mohammadv184\ArvanCloud\Response;
 use Mohammadv184\ArvanCloud\Services\Cdn\Cdn;

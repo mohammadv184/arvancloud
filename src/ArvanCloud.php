@@ -50,12 +50,13 @@ class ArvanCloud
             throw new InvalidArgument("invalid Service {$name}");
         }
         $service = $config['map'][strtolower($name)];
+        $serviceConfig = $config['services'][strtolower($name)];
         $auth = $config['auth']['default'] == 'ApiKey'
             ? new ApiKey($config['auth']['ApiKey'])
             : new UserToken();
         $http = new Http($auth, $config['services'][strtolower($name)]['baseUrl'], $service);
 
-        return new $config['map'][strtolower($name)]($http, $config['services'][strtolower($name)], ...$arguments);
+        return new $service($http, $serviceConfig, ...$arguments);
     }
 
     /**

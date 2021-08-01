@@ -19,7 +19,7 @@ trait HasData
      *
      * @return $this
      */
-    public function data($key, $value = null)
+    public function data($key, $value = null) : self
     {
         $data = is_array($key) ? $key : [$key=>$value];
 
