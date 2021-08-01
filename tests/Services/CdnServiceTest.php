@@ -2,6 +2,7 @@
 
 namespace Mohammadv184\ArvanCloud\Tests\Services;
 
+use GuzzleHttp\Psr7\Utils;
 use Mockery\Mock;
 use Mohammadv184\ArvanCloud\Adapter\Adapter;
 use Mohammadv184\ArvanCloud\Adapter\Http;
@@ -368,6 +369,34 @@ class CdnServiceTest extends TestCase
         $cdn = new Cdn($this->http, $this->config);
 
         $response = $cdn->dns()->cloud('497f6eca-6276-4993-bfeb-53cbbbba6f08', true, 'example.com');
+
+        $this->assertInstanceOf(Response::class, $response);
+
+        $this->assertIsArray($response->getData());
+
+        $this->assertEquals($httpResponse->getData(), $response->getData());
+
+        $this->assertEquals('cdn', $response->getService());
+
+        $this->assertEquals('string', $response->getMessage());
+    }
+    public function testImportDns()
+    {
+        $httpResponse = $this->getResponse('importDns', 'cdn');
+        $file = fopen(__DIR__.'/../FakeResponse/zoneFile.txt', 'r');
+        $body = [[
+            'name'     => 'f_zone_file',
+            'contents' => $file
+        ]];
+        $this->http->shouldReceive('request')
+            ->andReturn($httpResponse)
+            ->with('POST', 'domains/example.com/dns-records/import', ['multipart' => $body], [
+                'Accept' => 'multipart/form-data'
+            ]);
+
+        $cdn = new Cdn($this->http, $this->config);
+
+        $response = $cdn->dns()->import($file, 'example.com');
 
         $this->assertInstanceOf(Response::class, $response);
 
