@@ -3,6 +3,7 @@
 namespace Mohammadv184\ArvanCloud\Adapter;
 
 use Mohammadv184\ArvanCloud\Auth\Auth;
+use Mohammadv184\ArvanCloud\Exception\ResponseException;
 use Mohammadv184\ArvanCloud\Response;
 
 interface Adapter
@@ -65,4 +66,19 @@ interface Adapter
      * @return mixed
      */
     public function delete(string $url, array $data = [], array $headers = []): Response;
+
+    /**
+     * Sends a request.
+     *
+     * @param string $method
+     * @param string $url
+     * @param array  $data
+     * @param array  $headers
+     *
+     * @throws ResponseException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     *
+     * @return Response
+     */
+    public function request(string $method, string $url, array $data = [], array $headers = []): Response;
 }
