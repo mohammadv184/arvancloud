@@ -14,6 +14,8 @@
 PHP library for the ArvanCloud API.
 This package supports `PHP 7.3+`.
 
+For **Laravel** integration you can use [mohammadv184/arvancloud-laravel](https://github.com/mohammadv184/arvancloud-laravel) package.
+
 # List of contents
 
 - [PHP ArvanCloud API](#PHP-ArvanCloud-API)
