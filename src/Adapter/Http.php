@@ -35,14 +35,13 @@ class Http implements Adapter
     {
         $this->service = $service;
         $headers = $auth->getHeaders();
-
         $this->client = new Client([
             'base_uri'       => $baseUrl,
             'headers'        => $headers,
-            'Accept'         => 'application/json',
             'allow_redirects'=> false,
         ]);
     }
+
 
     /**
      * Sends a GET request.
@@ -58,7 +57,7 @@ class Http implements Adapter
      */
     public function get(string $url, array $data = [], array $headers = []): Response
     {
-        return $this->request('GET', $url, $data, $headers);
+        return $this->request('GET', $url, ['query'=>$data], $headers);
     }
 
     /**
@@ -75,7 +74,7 @@ class Http implements Adapter
      */
     public function post(string $url, array $data = [], array $headers = []): Response
     {
-        return $this->request('POST', $url, $data, $headers);
+        return $this->request('POST', $url, ['json'=>$data], $headers);
     }
 
     /**
@@ -92,7 +91,7 @@ class Http implements Adapter
      */
     public function put(string $url, array $data = [], array $headers = []): Response
     {
-        return $this->request('PUT', $url, $data, $headers);
+        return $this->request('PUT', $url, ['json'=>$data], $headers);
     }
 
     /**
@@ -109,7 +108,7 @@ class Http implements Adapter
      */
     public function patch(string $url, array $data = [], array $headers = []): Response
     {
-        return $this->request('PATCH', $url, $data, $headers);
+        return $this->request('PATCH', $url, ['json'=>$data], $headers);
     }
 
     /**
@@ -126,7 +125,7 @@ class Http implements Adapter
      */
     public function delete(string $url, array $data = [], array $headers = []): Response
     {
-        return $this->request('DELETE', $url, $data, $headers);
+        return $this->request('DELETE', $url, ['json'=>$data], $headers);
     }
 
     /**
@@ -145,10 +144,8 @@ class Http implements Adapter
     public function request(string $method, string $url, array $data = [], array $headers = []): Response
     {
         try {
-            $response = $this->client->request($method, $url, [
-                'headers'                             => $headers,
-                ($method == 'GET' ? 'query' : 'json') => $data,
-            ]);
+            $data['headers'] = $headers;
+            $response = $this->client->request($method, $url, $data);
         } catch (RequestException $e) {
             throw ResponseException::fromRequestException($e);
         }

@@ -16,6 +16,7 @@ interface Adapter
      */
     public function __construct(Auth $auth, string $baseUrl, string $service);
 
+
     /**
      * Sends a GET request.
      * Per Robustness Principle - not including the ability to send a body with a GET request (though possible in the
