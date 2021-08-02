@@ -132,7 +132,7 @@ Available methods:
   - `update(string $id, array $data, string $domain = null)` : Update Domain Dns Settings.  
   - `delete(string $domain = null)` : Delete Domain Dns.
   - `cloud(string $id, bool $status = true, string $domain = null)` : Update Domain Dns Cloud Status.
-  -  `import($zoneFile, string $domain = null)` : Import DNS records using BIND file
+  - `import($zoneFile, string $domain = null)` : Import DNS records using BIND file
 - `ssl` :
   - `get(string $domain = null)` : Get Domain Ssl Settings.
   - `update(string $sslType, string $domain = null)` : Update Domain Ssl Settings.
