@@ -4,9 +4,8 @@ namespace Mohammadv184\ArvanCloud\Services\Cdn\Endpoints;
 
 use Mohammadv184\ArvanCloud\Adapter\Adapter;
 use Mohammadv184\ArvanCloud\Response;
-use Mohammadv184\ArvanCloud\Services\Cdn\Endpoint;
 
-class Ssl extends Endpoint
+class Ssl
 {
     /**
      * ArvanCloud Http Adapter.

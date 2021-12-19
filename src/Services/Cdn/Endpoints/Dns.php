@@ -5,9 +5,8 @@ namespace Mohammadv184\ArvanCloud\Services\Cdn\Endpoints;
 use GuzzleHttp\Psr7\Utils;
 use Mohammadv184\ArvanCloud\Adapter\Adapter;
 use Mohammadv184\ArvanCloud\Response;
-use Mohammadv184\ArvanCloud\Services\Cdn\Endpoint;
 
-class Dns extends Endpoint
+class Dns
 {
     /**
      * ArvanCloud Http Adapter.
